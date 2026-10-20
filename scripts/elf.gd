@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
-
+@onready var layer = collision_layer
+@onready var mask = collision_mask
+@onready var down_timer : Timer = $down_timer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,8 +24,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("down_move") and is_on_floor():
-		
+		collision_mask = 1
+		down_timer.start()
 		print("S")
 
 
 	move_and_slide()
+
+
+func _on_down_time_timeout() -> void:
+	collision_mask = mask

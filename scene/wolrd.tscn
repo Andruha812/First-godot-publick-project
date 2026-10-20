@@ -178,7 +178,7 @@ tile_map_data = PackedByteArray("AAD4/wAAAAAAAAAAAAD4/wEAAAAAAAEAAAD5/wAAAAAAAAA
 tile_set = SubResource("TileSet_bni7g")
 
 [node name="Elf" parent="." unique_id=507048990 instance=ExtResource("2_lsa35")]
-position = Vector2(-1, -22)
+position = Vector2(-3, -17)
 SPEED = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Elf" unique_id=700919474]
@@ -188,3 +188,9 @@ zoom = Vector2(3, 3)
 
 [node name="platform" parent="platform" unique_id=1937317353 instance=ExtResource("3_qv3r4")]
 position = Vector2(50, -22)
+
+[node name="platform2" parent="platform" unique_id=1225920242 instance=ExtResource("3_qv3r4")]
+position = Vector2(52, -47)
+
+[node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_qv3r4")]
+position = Vector2(52, -73)
