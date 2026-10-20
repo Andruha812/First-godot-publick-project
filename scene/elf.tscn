@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fcipcmv7ayr"]
 
-[ext_resource type="Script" uid="uid://dbaxexs2ptrat" path="res://elf.gd" id="1_p5x6v"]
+[ext_resource type="Script" uid="uid://dbaxexs2ptrat" path="res://scripts/elf.gd" id="1_p5x6v"]
 [ext_resource type="Texture2D" uid="uid://o6ho8pe2wpja" path="res://assets/sprites/knight.png" id="2_orytj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1bob"]
@@ -44,13 +44,14 @@ radius = 7.0
 
 [node name="Elf" type="CharacterBody2D" unique_id=507048990]
 script = ExtResource("1_p5x6v")
+JUMP_VELOCITY = -250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=572342762]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ku4yp")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.3201485
+frame_progress = 0.40762702
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11760496]
 position = Vector2(0, 5)
