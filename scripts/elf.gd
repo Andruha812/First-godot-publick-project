@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("down_move") and is_on_floor():
 		collision_mask = 1
 		down_timer.start()
-		print("S")
 
 
 	move_and_slide()
