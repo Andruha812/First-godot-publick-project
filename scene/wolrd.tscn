@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_qv3r4"]
 [ext_resource type="PackedScene" uid="uid://b8ypcww05nfru" path="res://scene/attack_detect.tscn" id="4_khi8j"]
 [ext_resource type="Script" uid="uid://dcq47nvbpuw24" path="res://scripts/healt_bar.gd" id="5_d1c84"]
+[ext_resource type="PackedScene" uid="uid://b5jeroxvl4l2q" path="res://scene/enemy(orc).tscn" id="6_bs68n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsa35"]
 texture = ExtResource("1_s1iab")
@@ -200,12 +201,6 @@ position = Vector2(52, -47)
 [node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_qv3r4")]
 position = Vector2(52, -73)
 
-[node name="attack_detect" parent="." unique_id=428931980 instance=ExtResource("4_khi8j")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_detect" unique_id=875155932]
-position = Vector2(-120, -23.5)
-shape = SubResource("RectangleShape2D_5nwrp")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
 [node name="healtBar" type="ProgressBar" parent="CanvasLayer" unique_id=41450171]
@@ -218,3 +213,13 @@ offset_right = -12.0
 offset_bottom = 53.0
 grow_horizontal = 0
 script = ExtResource("5_d1c84")
+
+[node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_bs68n")]
+position = Vector2(-198, -12)
+
+[node name="attack_detect" parent="enemy(orc)" unique_id=428931980 instance=ExtResource("4_khi8j")]
+position = Vector2(198, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy(orc)/attack_detect" unique_id=875155932]
+position = Vector2(-120, -23.5)
+shape = SubResource("RectangleShape2D_5nwrp")
