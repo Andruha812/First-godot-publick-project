@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bi8std1k1lncq"]
+
+[ext_resource type="Script" uid="uid://dcq47nvbpuw24" path="res://scripts/healt_bar.gd" id="1_onfsl"]
+[ext_resource type="Script" uid="uid://dwb8e77iug4qn" path="res://scripts/ui.gd" id="1_s2f8l"]
+
+[node name="UI" type="Control" unique_id=63290054]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 966.0
+offset_top = 10.0
+offset_right = 1006.0
+offset_bottom = 50.0
+script = ExtResource("1_s2f8l")
+
+[node name="healtBar" type="ProgressBar" parent="." unique_id=1003772432]
+layout_mode = 0
+offset_right = 174.0
+offset_bottom = 43.0
+script = ExtResource("1_onfsl")
