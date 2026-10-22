@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+class_name Player
+
+signal healthChanged
+
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @onready var layer = collision_layer

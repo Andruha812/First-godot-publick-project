@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fcipcmv7ayr" path="res://scene/elf.tscn" id="2_lsa35"]
 [ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_qv3r4"]
 [ext_resource type="PackedScene" uid="uid://b8ypcww05nfru" path="res://scene/attack_detect.tscn" id="4_khi8j"]
+[ext_resource type="Script" uid="uid://dcq47nvbpuw24" path="res://scripts/healt_bar.gd" id="5_d1c84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsa35"]
 texture = ExtResource("1_s1iab")
@@ -207,7 +208,7 @@ shape = SubResource("RectangleShape2D_5nwrp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=41450171]
+[node name="healtBar" type="ProgressBar" parent="CanvasLayer" unique_id=41450171]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -216,3 +217,4 @@ offset_top = 10.0
 offset_right = -12.0
 offset_bottom = 53.0
 grow_horizontal = 0
+script = ExtResource("5_d1c84")
