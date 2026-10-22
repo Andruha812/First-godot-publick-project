@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var layer = collision_layer
 @onready var mask = collision_mask
 @onready var down_timer : Timer = $down_timer
+@onready var HP = 100
+@onready var currentHP: int = HP
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
