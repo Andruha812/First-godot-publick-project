@@ -204,3 +204,15 @@ position = Vector2(52, -73)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_detect" unique_id=875155932]
 position = Vector2(-120, -23.5)
 shape = SubResource("RectangleShape2D_5nwrp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=41450171]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -186.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = 53.0
+grow_horizontal = 0
