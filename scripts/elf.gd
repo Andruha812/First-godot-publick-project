@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-signal healthChanged
+#signal healthChanged
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
@@ -10,7 +10,7 @@ signal healthChanged
 @onready var mask = collision_mask
 @onready var down_timer : Timer = $down_timer
 @onready var HP = 100
-@onready var currentHP: int = HP
+@onready var currentHP  = HP
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -39,3 +39,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_down_time_timeout() -> void:
 	collision_mask = mask
+	
+#func hurtByEnemy(area):
+	#healthChanged.emit()
