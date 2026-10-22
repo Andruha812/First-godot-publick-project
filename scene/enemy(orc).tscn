@@ -45,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nqy"]
-size = Vector2(14, 9)
+size = Vector2(14, 12)
 
 [node name="enemy(orc)" type="RigidBody2D" unique_id=673559494]
 collision_layer = 8
@@ -55,10 +55,11 @@ collision_mask = 3
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_gk7gp")
 autoplay = "default"
+frame_progress = 0.46647593
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=183167801]
 rect = Rect2(-7, 2, 14, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803230348]
-position = Vector2(0, 6.5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_x2nqy")

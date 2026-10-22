@@ -8,9 +8,15 @@ class_name Player
 @export var JUMP_VELOCITY = -400.0
 @onready var layer = collision_layer
 @onready var mask = collision_mask
+@onready var healt_bar: ProgressBar = $healtBar
 @onready var down_timer : Timer = $down_timer
-@onready var HP = 100
-@onready var currentHP  = HP
+@onready var HP: float = 100
+
+@onready var currentHP: float = HP:
+	set(value):
+		currentHP = value
+		healt_bar.value = value
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -187,6 +187,17 @@ tile_set = SubResource("TileSet_bni7g")
 position = Vector2(-83, -18)
 SPEED = 200.0
 
+[node name="healtBar" type="ProgressBar" parent="Elf" unique_id=41450171]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1049.0
+offset_top = 28.0
+offset_right = 1223.0
+offset_bottom = 71.0
+grow_horizontal = 0
+script = ExtResource("5_d1c84")
+
 [node name="Camera2D" type="Camera2D" parent="Elf" unique_id=700919474]
 zoom = Vector2(3, 3)
 
@@ -201,25 +212,14 @@ position = Vector2(52, -47)
 [node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_qv3r4")]
 position = Vector2(52, -73)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
+[node name="attack_detect" parent="." unique_id=428931980 node_paths=PackedStringArray("elf") instance=ExtResource("4_khi8j")]
+elf = NodePath("../Elf")
 
-[node name="healtBar" type="ProgressBar" parent="CanvasLayer" unique_id=41450171]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -186.0
-offset_top = 10.0
-offset_right = -12.0
-offset_bottom = 53.0
-grow_horizontal = 0
-script = ExtResource("5_d1c84")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_detect" unique_id=875155932]
+position = Vector2(-120, -23.5)
+shape = SubResource("RectangleShape2D_5nwrp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
 [node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_bs68n")]
 position = Vector2(-198, -12)
-
-[node name="attack_detect" parent="enemy(orc)" unique_id=428931980 instance=ExtResource("4_khi8j")]
-position = Vector2(198, 12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy(orc)/attack_detect" unique_id=875155932]
-position = Vector2(-120, -23.5)
-shape = SubResource("RectangleShape2D_5nwrp")
