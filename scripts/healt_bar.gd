@@ -9,9 +9,10 @@ func set_status(max_v : int, v : int):
 
 func set_new_value(v: float):
 	value = v
+	print(value)
 
 func _ready() -> void:
-
+	
 	update()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
