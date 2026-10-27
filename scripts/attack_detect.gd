@@ -14,7 +14,7 @@ func _on_area_entered(area: Area2D) -> void:
 func zone_action():
 	while is_in_area==true:
 		await(1)
-		elf.currentHP -= 1
+		#elf.currentHP -= 1
 		print("area ", elf.currentHP)
 		await get_tree().create_timer(1).timeout
 

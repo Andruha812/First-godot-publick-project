@@ -2,20 +2,19 @@ extends CharacterBody2D
 
 class_name Player
 
-#signal healthChanged
-
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @onready var layer = collision_layer
 @onready var mask = collision_mask
 @onready var healt_bar: ProgressBar = $healtBar
 @onready var down_timer : Timer = $down_timer
-@onready var HP: float = 100
+@onready var maxHP: int = 100
 
-@onready var currentHP: float = HP:
+signal healthChanged(new_value)
+@onready var currentHP: int = maxHP:
 	set(value):
+		healthChanged.emit(value)
 		currentHP = value
-		healt_bar.value = value
 
 
 func _physics_process(delta: float) -> void:
