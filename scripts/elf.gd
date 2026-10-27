@@ -16,6 +16,15 @@ signal healthChanged(new_value)
 		healthChanged.emit(value)
 		currentHP = value	
 
+@export var hp: ProgressBar:
+	set(node):
+		healthChanged.connect(node.set_new_value)
+		node.set_status(maxHP, currentHP)
+		healt_bar = node
+		
+func _ready() -> void:
+	if healt_bar:
+		healt_bar.set_status(maxHP, currentHP)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
