@@ -1,10 +1,17 @@
 extends ProgressBar
+class_name healt_bar
 
 @onready var ui: Control = $".."
 
-# Called when the node enters the scene tree for the first time.
+func set_status(max_v : int, v : int):
+	max_value = max_v
+	value = v
+
+func set_new_value(v: float):
+	value = v
+
 func _ready() -> void:
-	#elf.healtChanged.connect(update)
+
 	update()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,4 +20,3 @@ func _process(delta: float) -> void:
 
 func update():
 	pass
-	#value = elf.currentHP * 100 / elf.HP
