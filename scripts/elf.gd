@@ -14,7 +14,7 @@ signal healthChanged(new_value)
 @onready var currentHP: int = maxHP:
 	set(value):
 		healthChanged.emit(value)
-		currentHP = value
+		currentHP = value	
 
 
 func _physics_process(delta: float) -> void:

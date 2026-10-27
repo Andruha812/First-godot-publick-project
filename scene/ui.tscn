@@ -5,15 +5,21 @@
 
 [node name="UI" type="Control" unique_id=63290054]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 966.0
-offset_top = 10.0
-offset_right = 1006.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s2f8l")
 
 [node name="healtBar" type="ProgressBar" parent="." unique_id=1003772432]
-layout_mode = 0
-offset_right = 174.0
-offset_bottom = 43.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = 66.0
+grow_horizontal = 0
 script = ExtResource("1_onfsl")

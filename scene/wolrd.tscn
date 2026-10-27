@@ -190,9 +190,6 @@ SPEED = 200.0
 [node name="Camera2D" type="Camera2D" parent="Elf" unique_id=700919474]
 zoom = Vector2(3, 3)
 
-[node name="UI" parent="." unique_id=63290054 node_paths=PackedStringArray("elf") instance=ExtResource("3_bs68n")]
-elf = NodePath("../Elf")
-
 [node name="platform" type="Node" parent="." unique_id=1766424600]
 
 [node name="platform" parent="platform" unique_id=1937317353 instance=ExtResource("3_qv3r4")]
@@ -212,6 +209,14 @@ position = Vector2(-120, -23.5)
 shape = SubResource("RectangleShape2D_5nwrp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
+
+[node name="UI" parent="CanvasLayer" unique_id=63290054 node_paths=PackedStringArray("elf") instance=ExtResource("3_bs68n")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+elf = NodePath("../../Elf")
 
 [node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_bs68n")]
 position = Vector2(-198, -12)
