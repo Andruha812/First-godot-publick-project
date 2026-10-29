@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cuhcnnsjl76c2"]
 
-[ext_resource type="Script" uid="uid://cblvsx6qi3n2v" path="res://start_game_btn.gd" id="1_3er1b"]
+[ext_resource type="Script" uid="uid://cblvsx6qi3n2v" path="res://scripts/start_game_btn.gd" id="1_3er1b"]
 [ext_resource type="PackedScene" uid="uid://d11tvlv66fnxr" path="res://scene/world.tscn" id="2_hxu56"]
+[ext_resource type="Script" uid="uid://dkkjg8cmx7umk" path="res://scripts/exit_game_btn.gd" id="3_2fwvj"]
 
 [node name="Main_menu" type="Control" unique_id=1284016274]
 layout_mode = 3
@@ -41,5 +42,7 @@ text = "SETTINGS"
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "EXIT GAME"
+script = ExtResource("3_2fwvj")
 
 [connection signal="pressed" from="BoxContainer/start_game_btn" to="BoxContainer/start_game_btn" method="_on_pressed"]
+[connection signal="pressed" from="BoxContainer/exit_game_btn" to="BoxContainer/exit_game_btn" method="_on_pressed"]
