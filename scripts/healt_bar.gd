@@ -11,8 +11,6 @@ func set_status(max_v : int, v : int):
 	value = v	
 func set_new_value(v: float):
 	value = v
-	print(v)
-	print(value)
 
 func _ready() -> void:
 	update()
