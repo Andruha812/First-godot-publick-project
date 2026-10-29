@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://7143g34cdn1y" path="res://assets/sprites/world_tileset.png" id="1_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://fcipcmv7ayr" path="res://scene/elf.tscn" id="2_hcb8y"]
 [ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_y3jn2"]
-[ext_resource type="PackedScene" uid="uid://b8ypcww05nfru" path="res://scene/attack_detect.tscn" id="4_yur6x"]
 [ext_resource type="PackedScene" uid="uid://bi8std1k1lncq" path="res://scene/ui.tscn" id="5_7ghph"]
 [ext_resource type="PackedScene" uid="uid://b5jeroxvl4l2q" path="res://scene/enemy(orc).tscn" id="6_na5tu"]
 
@@ -174,9 +173,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_lsa35")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nwrp"]
-size = Vector2(14, 47)
-
 [node name="world" type="Node2D" unique_id=1292852276]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=145590139]
@@ -186,7 +182,7 @@ tile_set = SubResource("TileSet_bni7g")
 [node name="Elf" parent="." unique_id=507048990 node_paths=PackedStringArray("hp") groups=["player"] instance=ExtResource("2_hcb8y")]
 position = Vector2(-83, -18)
 SPEED = 200.0
-hp = NodePath("../CanvasLayer/UI/healtBar")
+hp = NodePath("../CanvasLayer/UI/BoxContainer/healtBar")
 
 [node name="Camera2D" type="Camera2D" parent="Elf" unique_id=700919474]
 zoom = Vector2(3, 3)
@@ -201,13 +197,6 @@ position = Vector2(52, -47)
 
 [node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_y3jn2")]
 position = Vector2(52, -73)
-
-[node name="attack_detect" parent="." unique_id=428931980 node_paths=PackedStringArray("elf") instance=ExtResource("4_yur6x")]
-elf = NodePath("../Elf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_detect" unique_id=875155932]
-position = Vector2(-123, -156)
-shape = SubResource("RectangleShape2D_5nwrp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
