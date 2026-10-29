@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc3f63aytnltl" path="res://scripts/enemy(orc).gd" id="1_npg5w"]
 [ext_resource type="Texture2D" uid="uid://c5vaomyfqdgb1" path="res://assets/sprites/slime_purple.png" id="1_x2nqy"]
+[ext_resource type="Script" uid="uid://bhw57ss8vb7kv" path="res://scripts/orc_attack.gd" id="3_iof48"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npg5w"]
 atlas = ExtResource("1_x2nqy")
@@ -60,7 +61,7 @@ script = ExtResource("1_npg5w")
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_gk7gp")
 autoplay = "default"
-frame_progress = 0.9103121
+frame_progress = 0.12102027
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=183167801]
 rect = Rect2(-7, 2, 14, 9)
@@ -70,7 +71,11 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_x2nqy")
 
 [node name="orc_attack" type="Area2D" parent="." unique_id=45147954]
+script = ExtResource("3_iof48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="orc_attack" unique_id=1306837303]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_5nwrp")
+
+[connection signal="area_entered" from="orc_attack" to="orc_attack" method="_on_area_entered"]
+[connection signal="area_exited" from="orc_attack" to="orc_attack" method="_on_area_exited"]
