@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cuhcnnsjl76c2"]
+
+[ext_resource type="Script" uid="uid://cblvsx6qi3n2v" path="res://start_game_btn.gd" id="1_3er1b"]
+[ext_resource type="PackedScene" uid="uid://d11tvlv66fnxr" path="res://scene/world.tscn" id="2_hxu56"]
+
+[node name="Main_menu" type="Control" unique_id=1284016274]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=2000722696]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -50.5
+offset_bottom = 54.0
+grow_horizontal = 0
+grow_vertical = 2
+vertical = true
+
+[node name="start_game_btn" type="Button" parent="BoxContainer" unique_id=193648579]
+custom_minimum_size = Vector2(5, 50)
+layout_mode = 2
+text = "START GAME"
+script = ExtResource("1_3er1b")
+scene_to_launch = ExtResource("2_hxu56")
+
+[node name="setting_btn" type="Button" parent="BoxContainer" unique_id=197954158]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="exit_game_btn" type="Button" parent="BoxContainer" unique_id=569655843]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "EXIT GAME"
+
+[connection signal="pressed" from="BoxContainer/start_game_btn" to="BoxContainer/start_game_btn" method="_on_pressed"]

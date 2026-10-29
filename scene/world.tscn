@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://d11tvlv66fnxr"]
 
-[ext_resource type="Texture2D" uid="uid://7143g34cdn1y" path="res://assets/sprites/world_tileset.png" id="1_s1iab"]
-[ext_resource type="PackedScene" uid="uid://fcipcmv7ayr" path="res://scene/elf.tscn" id="2_lsa35"]
-[ext_resource type="PackedScene" uid="uid://bi8std1k1lncq" path="res://scene/ui.tscn" id="3_bs68n"]
-[ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_qv3r4"]
-[ext_resource type="PackedScene" uid="uid://b8ypcww05nfru" path="res://scene/attack_detect.tscn" id="4_khi8j"]
-[ext_resource type="PackedScene" uid="uid://b5jeroxvl4l2q" path="res://scene/enemy(orc).tscn" id="6_bs68n"]
+[ext_resource type="Texture2D" uid="uid://7143g34cdn1y" path="res://assets/sprites/world_tileset.png" id="1_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://fcipcmv7ayr" path="res://scene/elf.tscn" id="2_hcb8y"]
+[ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_y3jn2"]
+[ext_resource type="PackedScene" uid="uid://b8ypcww05nfru" path="res://scene/attack_detect.tscn" id="4_yur6x"]
+[ext_resource type="PackedScene" uid="uid://bi8std1k1lncq" path="res://scene/ui.tscn" id="5_7ghph"]
+[ext_resource type="PackedScene" uid="uid://b5jeroxvl4l2q" path="res://scene/enemy(orc).tscn" id="6_na5tu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsa35"]
-texture = ExtResource("1_s1iab")
+texture = ExtResource("1_0tg4p")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -177,13 +177,13 @@ sources/0 = SubResource("TileSetAtlasSource_lsa35")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nwrp"]
 size = Vector2(14, 47)
 
-[node name="Wolrd" type="Node2D" unique_id=1292852276]
+[node name="world" type="Node2D" unique_id=1292852276]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=145590139]
 tile_map_data = PackedByteArray("AAD4/wAAAAAAAAAAAAD4/wEAAAAAAAEAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAEAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAEAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAEAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAEAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAEAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAEAAAD//wAAAAAAAAAAAAD//wEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAAAAAAAAAAAAAABAAEAAAAAAAEAAAACAAAAAAAAAAAAAAACAAEAAAAAAAEAAAADAAAAAAAAAAAAAAADAAEAAAAAAAEAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAEAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAEAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAEAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAEAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAEAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAEAAAALAAAAAAAAAAAAAAALAAEAAAAAAAEAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAEAAAANAAAAAAAAAAAAAAANAAEAAAAAAAEAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAEAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAEAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAEAAAARAAAAAAAAAAAAAAARAAEAAAAAAAEAAAASAAAAAAAAAAAAAAASAAEAAAAAAAEAAAATAAAAAAAAAAAAAAATAAEAAAAAAAEAAAAUAAAAAAAAAAAAAAAUAAEAAAAAAAEAAAAVAAAAAAAAAAAAAAAVAAEAAAAAAAEAAAAWAAAAAAAAAAAAAAAWAAEAAAAAAAEAAAAXAAAAAAAAAAAAAAAXAAEAAAAAAAEAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAEAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAEAAAAaAAAAAAAAAAAAAAAaAAEAAAAAAAEAAAAbAAAAAAAAAAAAAAAbAAEAAAAAAAEAAAAcAAAAAAAAAAAAAAAcAAEAAAAAAAEAAAAdAAAAAAAAAAAAAAAdAAEAAAAAAAEAAAAeAAAAAAAAAAAAAAAeAAEAAAAAAAEAAAAfAAAAAAAAAAAAAAAfAAEAAAAAAAEAAAAgAAAAAAAAAAAAAAAgAAEAAAAAAAEAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAEAAAD2/wAAAAAAAAAAAAD2/wEAAAAAAAEAAAD1/wAAAAAAAAAAAAD1/wEAAAAAAAEAAAD0/wAAAAAAAAAAAAD0/wEAAAAAAAEAAADz/wAAAAAAAAAAAADz/wEAAAAAAAEAAADy/wAAAAAAAAAAAADy/wEAAAAAAAEAAADx/wAAAAAAAAAAAADx/wEAAAAAAAEAAADw/wAAAAAAAAAAAADw/wEAAAAAAAEAAADv/wAAAAAAAAAAAADv/wEAAAAAAAEAAADu/wAAAAAAAAAAAADu/wEAAAAAAAEAAADt/wAAAAAAAAAAAADt/wEAAAAAAAEAAADs/wAAAAAAAAAAAADs/wEAAAAAAAEAAADr/wAAAAAAAAAAAADr/wEAAAAAAAEAAADq/wAAAAAAAAAAAADq/wEAAAAAAAEAAADp/wAAAAAAAAAAAADp/wEAAAAAAAEAAADo/wAAAAAAAAAAAADo/wEAAAAAAAEAAADn/wAAAAAAAAAAAADn/wEAAAAAAAEAAADm/wAAAAAAAAAAAADm/wEAAAAAAAEAAADl/wAAAAAAAAAAAADl/wEAAAAAAAEAAADk/wAAAAAAAAAAAADk/wEAAAAAAAEAAADj/wAAAAAAAAAAAADj/wEAAAAAAAEAAAD4//3/AAAFAAMAAAD4//7/AAAFAAQAAAD4////AAAFAAUAAAA=")
 tile_set = SubResource("TileSet_bni7g")
 
-[node name="Elf" parent="." unique_id=507048990 node_paths=PackedStringArray("hp") instance=ExtResource("2_lsa35")]
+[node name="Elf" parent="." unique_id=507048990 node_paths=PackedStringArray("hp") instance=ExtResource("2_hcb8y")]
 position = Vector2(-83, -18)
 SPEED = 200.0
 hp = NodePath("../CanvasLayer/UI/healtBar")
@@ -193,16 +193,16 @@ zoom = Vector2(3, 3)
 
 [node name="platform" type="Node" parent="." unique_id=1766424600]
 
-[node name="platform" parent="platform" unique_id=1937317353 instance=ExtResource("3_qv3r4")]
+[node name="platform" parent="platform" unique_id=1937317353 instance=ExtResource("3_y3jn2")]
 position = Vector2(50, -22)
 
-[node name="platform2" parent="platform" unique_id=1225920242 instance=ExtResource("3_qv3r4")]
+[node name="platform2" parent="platform" unique_id=1225920242 instance=ExtResource("3_y3jn2")]
 position = Vector2(52, -47)
 
-[node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_qv3r4")]
+[node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_y3jn2")]
 position = Vector2(52, -73)
 
-[node name="attack_detect" parent="." unique_id=428931980 node_paths=PackedStringArray("elf") instance=ExtResource("4_khi8j")]
+[node name="attack_detect" parent="." unique_id=428931980 node_paths=PackedStringArray("elf") instance=ExtResource("4_yur6x")]
 elf = NodePath("../Elf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_detect" unique_id=875155932]
@@ -211,10 +211,10 @@ shape = SubResource("RectangleShape2D_5nwrp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
-[node name="UI" parent="CanvasLayer" unique_id=63290054 node_paths=PackedStringArray("elf") instance=ExtResource("3_bs68n")]
+[node name="UI" parent="CanvasLayer" unique_id=63290054 node_paths=PackedStringArray("elf") instance=ExtResource("5_7ghph")]
 elf = NodePath("../../Elf")
 
-[node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_bs68n")]
+[node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_na5tu")]
 position = Vector2(-198, -12)
 
 [editable path="CanvasLayer/UI"]
