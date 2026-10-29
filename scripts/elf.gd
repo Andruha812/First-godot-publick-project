@@ -8,10 +8,10 @@ class_name Player
 @onready var mask = collision_mask
 @onready var healt_bar: ProgressBar = $healtBar
 @onready var down_timer : Timer = $down_timer
-@onready var maxHP: int = 100
+@export var maxHP: int = 100
 
 signal healthChanged(new_value)
-@onready var currentHP: int = maxHP:
+@export var currentHP: int = maxHP:
 	set(value):
 		healthChanged.emit(value)
 		currentHP = value	
