@@ -14,7 +14,6 @@ signal healthChanged(new_value)
 @onready var currentHP: int = maxHP:
 	set(value):
 		healthChanged.emit(value)
-		print(value)
 		currentHP = value	
 
 @export var hp: ProgressBar:
