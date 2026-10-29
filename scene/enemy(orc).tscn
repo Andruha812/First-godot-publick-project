@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b5jeroxvl4l2q"]
 
+[ext_resource type="Script" uid="uid://dc3f63aytnltl" path="res://scripts/enemy(orc).gd" id="1_npg5w"]
 [ext_resource type="Texture2D" uid="uid://c5vaomyfqdgb1" path="res://assets/sprites/slime_purple.png" id="1_x2nqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npg5w"]
@@ -41,21 +42,25 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 11.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nqy"]
 size = Vector2(14, 12)
 
-[node name="enemy(orc)" type="RigidBody2D" unique_id=673559494]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nwrp"]
+size = Vector2(19, 19)
+
+[node name="enemy(orc)" type="CharacterBody2D" unique_id=878432862]
 collision_layer = 8
 collision_mask = 3
+script = ExtResource("1_npg5w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1506818777]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_gk7gp")
 autoplay = "default"
-frame_progress = 0.46647593
+frame_progress = 0.9103121
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=183167801]
 rect = Rect2(-7, 2, 14, 9)
@@ -63,3 +68,9 @@ rect = Rect2(-7, 2, 14, 9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803230348]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_x2nqy")
+
+[node name="orc_attack" type="Area2D" parent="." unique_id=45147954]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="orc_attack" unique_id=1306837303]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_5nwrp")
