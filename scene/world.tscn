@@ -202,11 +202,11 @@ position = Vector2(49, -82)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
-[node name="UI" parent="CanvasLayer" unique_id=63290054 node_paths=PackedStringArray("elf") instance=ExtResource("5_7ghph")]
+[node name="UI" parent="CanvasLayer" unique_id=63290054 node_paths=PackedStringArray("mana_bar", "elf") instance=ExtResource("5_7ghph")]
+mana_bar = NodePath("BoxContainer/manaBar")
 elf = NodePath("../../Elf")
 
 [node name="manaBar" parent="CanvasLayer/UI/BoxContainer" parent_id_path=PackedInt32Array(63290054, 2135773242) index="1" unique_id=1403860000]
-show_percentage = false
 script = ExtResource("5_0tg4p")
 
 [node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_na5tu")]
