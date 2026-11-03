@@ -9,6 +9,7 @@ class_name Player
 @onready var healt_bar: ProgressBar = $healtBar
 @onready var mana_bar: ProgressBar = $Mana_bar
 @onready var down_timer : Timer = $down_timer
+@onready var in_combat_timer: Timer = $in_combat_timer
 @export var maxHP: float = 100
 @export var maxMP: float = 80
 @onready var in_combat: bool = false
@@ -34,6 +35,7 @@ signal healthChanged(new_value)
 @export var currentHP: int = maxHP:
 	set(value):
 		if value<currentHP:
+			in_combat_timer.start()
 			in_combat = true
 		if value >= maxHP or value <= 0:
 			healthChanged.emit(maxHP)
@@ -51,7 +53,7 @@ signal healthChanged(new_value)
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(maxHP, currentHP)
-	passive_regenerate()
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -76,7 +78,7 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
-
+	
 
 func _on_down_time_timeout() -> void:
 	collision_mask = mask
@@ -85,7 +87,7 @@ func passive_regenerate():
 	while in_combat == false:
 		currentHP += 1
 		currentMP += 1
-		await get_tree().create_timer(1).timeout
+		print("hp:", currentHP)
 
 #func hurtByEnemy(area):
 	#healthChanged.emit()
@@ -94,3 +96,7 @@ func passive_regenerate():
 func _on_in_combat_timer_timeout() -> void:
 	in_combat = false
 	pass
+
+
+func _on_regen_timer_timeout() -> void:
+	passive_regenerate()
