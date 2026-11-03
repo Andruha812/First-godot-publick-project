@@ -22,6 +22,7 @@ offset_top = 8.0
 offset_right = -8.0
 offset_bottom = 66.0
 grow_horizontal = 0
+theme_override_constants/separation = 13
 vertical = true
 
 [node name="healtBar" type="ProgressBar" parent="BoxContainer" unique_id=1003772432]
