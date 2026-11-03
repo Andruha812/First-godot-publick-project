@@ -12,6 +12,7 @@ class_name Player
 @export var maxHP: float = 100
 @export var maxMP: float = 80
 @onready var in_combat: bool = false
+@export var strenght: int = 2
 
 signal mpchanged(new_value)
 @export var currentMP: int = maxMP:
