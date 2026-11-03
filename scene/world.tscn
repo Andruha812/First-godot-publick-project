@@ -206,6 +206,7 @@ position = Vector2(52, -73)
 elf = NodePath("../../Elf")
 
 [node name="manaBar" parent="CanvasLayer/UI/BoxContainer" parent_id_path=PackedInt32Array(63290054, 2135773242) index="1" unique_id=1403860000]
+show_percentage = false
 script = ExtResource("5_0tg4p")
 
 [node name="enemy(orc)" parent="." unique_id=673559494 instance=ExtResource("6_na5tu")]

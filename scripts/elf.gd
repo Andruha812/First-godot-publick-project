@@ -14,9 +14,9 @@ class_name Player
 
 signal mpchanged(new_value)
 @export var currentMP: int = maxMP:
-	set(mvalue):
-		mpchanged.emit(mvalue)
-		currentMP = mvalue
+	set(value):
+		mpchanged.emit(value)
+		currentMP = value
 
 @export var mp: ProgressBar:
 	set(node):
