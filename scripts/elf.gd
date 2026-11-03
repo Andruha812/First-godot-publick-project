@@ -9,14 +9,19 @@ class_name Player
 @onready var healt_bar: ProgressBar = $healtBar
 @onready var mana_bar: ProgressBar = $Mana_bar
 @onready var down_timer : Timer = $down_timer
-@export var maxHP: int = 100
-@export var maxMP: int = 80
+@export var maxHP: float = 100
+@export var maxMP: float = 80
+@onready var in_combat: bool = false
 
 signal mpchanged(new_value)
 @export var currentMP: int = maxMP:
 	set(value):
-		mpchanged.emit(value)
-		currentMP = value
+		if value >= maxMP or value <= 0:
+			mpchanged.emit(maxMP)
+			currentMP = maxMP
+		else:
+			mpchanged.emit(value)
+			currentMP = value
 
 @export var mp: ProgressBar:
 	set(node):
@@ -27,8 +32,14 @@ signal mpchanged(new_value)
 signal healthChanged(new_value)
 @export var currentHP: int = maxHP:
 	set(value):
-		healthChanged.emit(value)
-		currentHP = value	
+		if value<currentHP:
+			in_combat = true
+		if value >= maxHP or value <= 0:
+			healthChanged.emit(maxHP)
+			currentHP = maxHP	
+		else:
+			healthChanged.emit(value)
+			currentHP = value	
 
 @export var hp: ProgressBar:
 	set(node):
@@ -39,6 +50,7 @@ signal healthChanged(new_value)
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(maxHP, currentHP)
+	passive_regenerate()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -68,5 +80,18 @@ func _physics_process(delta: float) -> void:
 func _on_down_time_timeout() -> void:
 	collision_mask = mask
 	
+func passive_regenerate():
+	while in_combat == false:
+		currentHP += 1
+		currentMP += 1
+		print("player_HP: ", currentHP)
+		print("player_MP: ", currentMP)
+		await get_tree().create_timer(1).timeout
+
 #func hurtByEnemy(area):
 	#healthChanged.emit()
+
+
+func _on_in_combat_timer_timeout() -> void:
+	in_combat = false
+	pass

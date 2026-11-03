@@ -56,7 +56,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ku4yp")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.82341415
+frame_progress = 0.9532899
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11760496]
 position = Vector2(0, -0.5)
@@ -72,4 +72,8 @@ wait_time = 0.2
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_bx5ql")
 
+[node name="in_combat_timer" type="Timer" parent="." unique_id=456082430]
+one_shot = true
+
 [connection signal="timeout" from="down_timer" to="." method="_on_down_time_timeout"]
+[connection signal="timeout" from="in_combat_timer" to="." method="_on_in_combat_timer_timeout"]
