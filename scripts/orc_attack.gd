@@ -11,7 +11,6 @@ func _on_area_entered(area: Area2D) -> void:
 func zone_action():
 	while is_in_area==true:
 		player.currentHP -= 5
-		print("player_MP: ", player.currentHP)
 		await get_tree().create_timer(1.1).timeout
 
 func _on_area_exited(area: Area2D) -> void:
