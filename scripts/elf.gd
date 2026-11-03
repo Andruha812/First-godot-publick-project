@@ -7,8 +7,22 @@ class_name Player
 @onready var layer = collision_layer
 @onready var mask = collision_mask
 @onready var healt_bar: ProgressBar = $healtBar
+@onready var mana_bar: ProgressBar = $Mana_bar
 @onready var down_timer : Timer = $down_timer
 @export var maxHP: int = 100
+@export var maxMP: int = 80
+
+signal mpchanged(new_value)
+@export var currentMP: int = maxMP:
+	set(mvalue):
+		mpchanged.emit(mvalue)
+		currentMP = mvalue
+
+@export var mp: ProgressBar:
+	set(node):
+		mpchanged.connect(node.set_new_value)
+		node.set_status(maxMP, currentMP)
+		mana_bar = node
 
 signal healthChanged(new_value)
 @export var currentHP: int = maxHP:
