@@ -192,13 +192,13 @@ zoom = Vector2(3, 3)
 [node name="platform" type="Node" parent="." unique_id=1766424600]
 
 [node name="platform" parent="platform" unique_id=1937317353 instance=ExtResource("3_y3jn2")]
-position = Vector2(50, -22)
+position = Vector2(49, -42)
 
 [node name="platform2" parent="platform" unique_id=1225920242 instance=ExtResource("3_y3jn2")]
-position = Vector2(52, -47)
+position = Vector2(-57, -78)
 
 [node name="platform3" parent="platform" unique_id=2043866985 instance=ExtResource("3_y3jn2")]
-position = Vector2(52, -73)
+position = Vector2(49, -82)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=387068769]
 
