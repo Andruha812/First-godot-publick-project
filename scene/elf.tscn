@@ -73,6 +73,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_bx5ql")
 
 [node name="in_combat_timer" type="Timer" parent="." unique_id=456082430]
+wait_time = 1.5
 one_shot = true
 
 [node name="regen_timer" type="Timer" parent="." unique_id=118674832]
