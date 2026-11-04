@@ -88,6 +88,7 @@ func passive_regenerate():
 		currentHP += 1
 		currentMP += 1
 		print("hp:", currentHP)
+		await get_tree().create_timer(1).timeout
 
 #func hurtByEnemy(area):
 	#healthChanged.emit()
