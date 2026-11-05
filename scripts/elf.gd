@@ -84,11 +84,11 @@ func _on_down_time_timeout() -> void:
 	collision_mask = mask
 	
 func passive_regenerate():
-	while in_combat == false && currentHP != maxHP:
+	if in_combat == false && currentHP != maxHP:
 		currentHP += 1
-		currentMP += 1
+		#currentMP += 1
 		print("hp:", currentHP)
-		await get_tree().create_timer(1).timeout
+		#await get_tree().create_timer(1).timeout
 #func hurtByEnemy(area):
 	#healthChanged.emit()
 
@@ -99,3 +99,4 @@ func _on_in_combat_timer_timeout() -> void:
 
 func _on_regen_timer_timeout() -> void:
 	passive_regenerate()
+	
