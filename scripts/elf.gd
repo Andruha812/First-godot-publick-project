@@ -14,10 +14,10 @@ class_name Player
 #@export var maxMP: float = 80
 @onready var in_combat: bool = false
 @export var strenght: int = 2
-@export var stats: PlayerData
+
 
 signal mpchanged(new_value)
-@export var currentMP: int = stats.maxMP:
+@onready var currentMP:
 	set(value):
 		if value >= stats.maxMP or value <= 0:
 			mpchanged.emit(stats.maxMP)
@@ -33,7 +33,7 @@ signal mpchanged(new_value)
 		mana_bar = node
 
 signal healthChanged(new_value)
-@export var currentHP: int = stats.maxHP:
+@onready var currentHP: 
 	set(value):
 		if value<currentHP:
 			in_combat_timer.start()
@@ -50,11 +50,16 @@ signal healthChanged(new_value)
 		healthChanged.connect(node.set_new_value)
 		node.set_status(stats.maxHP, currentHP)
 		healt_bar = node
-		
+@export var stats: PlayerData:
+	set(value):
+		currentHP = value.maxHP
+		currentMP = value.maxMP
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(stats.maxHP, currentHP)
-	
+	#if stats: 
+		#currentHP = stats.maxHP
+		#currentMP = stats.maxMP
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
