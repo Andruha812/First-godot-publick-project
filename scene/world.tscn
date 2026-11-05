@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://7143g34cdn1y" path="res://assets/sprites/world_tileset.png" id="1_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://fcipcmv7ayr" path="res://scene/elf.tscn" id="2_hcb8y"]
 [ext_resource type="PackedScene" uid="uid://cyke3tvjcgw6f" path="res://scene/platform.tscn" id="3_y3jn2"]
-[ext_resource type="Script" uid="uid://c0oufpsetdnph" path="res://mana_bar.gd" id="5_0tg4p"]
+[ext_resource type="Script" uid="uid://c0oufpsetdnph" path="res://scripts/mana_bar.gd" id="5_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://bi8std1k1lncq" path="res://scene/ui.tscn" id="5_7ghph"]
 [ext_resource type="PackedScene" uid="uid://b5jeroxvl4l2q" path="res://scene/enemy(orc).tscn" id="6_na5tu"]
 

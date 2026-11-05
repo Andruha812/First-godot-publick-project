@@ -10,17 +10,18 @@ class_name Player
 @onready var mana_bar: ProgressBar = $Mana_bar
 @onready var down_timer : Timer = $down_timer
 @onready var in_combat_timer: Timer = $in_combat_timer
-@export var maxHP: float = 100
-@export var maxMP: float = 80
+#@export var maxHP: float = 100
+#@export var maxMP: float = 80
 @onready var in_combat: bool = false
 @export var strenght: int = 2
+@export var stats: PlayerData
 
 signal mpchanged(new_value)
-@export var currentMP: int = maxMP:
+@export var currentMP: int = stats.maxMP:
 	set(value):
-		if value >= maxMP or value <= 0:
-			mpchanged.emit(maxMP)
-			currentMP = maxMP
+		if value >= stats.maxMP or value <= 0:
+			mpchanged.emit(stats.maxMP)
+			currentMP = stats.maxMP
 		else:
 			mpchanged.emit(value)
 			currentMP = value
@@ -28,18 +29,18 @@ signal mpchanged(new_value)
 @export var mp: ProgressBar:
 	set(node):
 		mpchanged.connect(node.set_new_value)
-		node.set_status(maxMP, currentMP)
+		node.set_status(stats.maxMP, currentMP)
 		mana_bar = node
 
 signal healthChanged(new_value)
-@export var currentHP: int = maxHP:
+@export var currentHP: int = stats.maxHP:
 	set(value):
 		if value<currentHP:
 			in_combat_timer.start()
 			in_combat = true
-		if value >= maxHP or value <= 0:
-			healthChanged.emit(maxHP)
-			currentHP = maxHP	
+		if value >= stats.maxHP or value <= 0:
+			healthChanged.emit(stats.maxHP)
+			currentHP = stats.maxHP	
 		else:
 			healthChanged.emit(value)
 			currentHP = value	
@@ -47,12 +48,12 @@ signal healthChanged(new_value)
 @export var hp: ProgressBar:
 	set(node):
 		healthChanged.connect(node.set_new_value)
-		node.set_status(maxHP, currentHP)
+		node.set_status(stats.maxHP, currentHP)
 		healt_bar = node
 		
 func _ready() -> void:
 	if healt_bar:
-		healt_bar.set_status(maxHP, currentHP)
+		healt_bar.set_status(stats.maxHP, currentHP)
 	
 
 func _physics_process(delta: float) -> void:
@@ -84,11 +85,11 @@ func _on_down_time_timeout() -> void:
 	collision_mask = mask
 	
 func passive_regenerate():
-	if in_combat == false && currentHP != maxHP:
+	if in_combat == false && currentHP != stats.maxHP:
 		currentHP += 1
 		#currentMP += 1
 		print("hp:", currentHP)
-		#await get_tree().create_timer(1).timeout
+
 #func hurtByEnemy(area):
 	#healthChanged.emit()
 

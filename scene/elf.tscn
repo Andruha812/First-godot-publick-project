@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://fcipcmv7ayr"]
 
 [ext_resource type="Script" uid="uid://dbaxexs2ptrat" path="res://scripts/elf.gd" id="1_p5x6v"]
+[ext_resource type="Script" uid="uid://c4w8p4lwfl4m7" path="res://scripts/player_data.gd" id="2_orytj"]
 [ext_resource type="Texture2D" uid="uid://d0vv5if3ew2f3" path="res://assets/sprites/elf32x32.png" id="2_p5x6v"]
+
+[sub_resource type="Resource" id="Resource_p5x6v"]
+script = ExtResource("2_orytj")
+metadata/_custom_type_script = "uid://c4w8p4lwfl4m7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orytj"]
 atlas = ExtResource("2_p5x6v")
@@ -50,6 +55,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_p5x6v")
 JUMP_VELOCITY = -300.0
+stats = SubResource("Resource_p5x6v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=572342762]
 texture_filter = 1
