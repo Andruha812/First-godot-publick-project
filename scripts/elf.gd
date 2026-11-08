@@ -14,7 +14,10 @@ class_name Player
 #@export var maxMP: float = 80
 @onready var in_combat: bool = false
 @export var strenght: int = 2
-
+@export var stats: PlayerData:
+	set(value):
+		currentHP = value.maxHP
+		currentMP = value.maxMP
 
 signal mpchanged(new_value)
 @onready var currentMP:
@@ -50,10 +53,7 @@ signal healthChanged(new_value)
 		healthChanged.connect(node.set_new_value)
 		node.set_status(stats.maxHP, currentHP)
 		healt_bar = node
-@export var stats: PlayerData:
-	set(value):
-		currentHP = value.maxHP
-		currentMP = value.maxMP
+		
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(stats.maxHP, currentHP)
