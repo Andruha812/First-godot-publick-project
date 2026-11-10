@@ -55,17 +55,13 @@ signal healthChanged(new_value)
 		healthChanged.connect(node.set_new_value)
 		node.set_status(stats.maxHP, currentHP)
 		healt_bar = node
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> e94c4866714fca1c57a8329ae618d8040b352a79
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(stats.maxHP, currentHP)
-	#if stats: 
-		#currentHP = stats.maxHP
-		#currentMP = stats.maxMP
+	if stats: 
+		currentHP = stats.maxHP
+		currentMP = stats.maxMP
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
