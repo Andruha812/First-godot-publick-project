@@ -79,6 +79,8 @@ func _physics_process(delta: float) -> void:
 		collision_mask = 1
 		down_timer.start()
 
+	if Input.is_action_just_pressed("skill_F"):
+		skill()
 
 	move_and_slide()
 	
@@ -87,9 +89,9 @@ func _on_down_time_timeout() -> void:
 	collision_mask = mask
 	
 func passive_regenerate():
-	if in_combat == false && currentHP != stats.maxHP:
+	if in_combat == false:
 		currentHP += 1
-		#currentMP += 1
+		currentMP += 1
 		print("hp:", currentHP)
 
 #func hurtByEnemy(area):
@@ -98,8 +100,11 @@ func passive_regenerate():
 
 func _on_in_combat_timer_timeout() -> void:
 	in_combat = false
+	
 
 
 func _on_regen_timer_timeout() -> void:
 	passive_regenerate()
 	
+func skill() -> void:
+	currentMP -= 15
