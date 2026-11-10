@@ -14,13 +14,10 @@ class_name Player
 #@export var maxMP: float = 80
 @onready var in_combat: bool = false
 @export var strenght: int = 2
-@export var stats: PlayerData:
-	set(value):
-		currentHP = value.maxHP
-		currentMP = value.maxMP
+@export var stats: PlayerData
 
 signal mpchanged(new_value)
-@onready var currentMP:
+@onready var currentMP: int:
 	set(value):
 		if value >= stats.maxMP or value <= 0:
 			mpchanged.emit(stats.maxMP)
@@ -36,7 +33,7 @@ signal mpchanged(new_value)
 		mana_bar = node
 
 signal healthChanged(new_value)
-@onready var currentHP: 
+@onready var currentHP: int:
 	set(value):
 		if value<currentHP:
 			in_combat_timer.start()

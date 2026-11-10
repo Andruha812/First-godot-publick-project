@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dcq47nvbpuw24" path="res://scripts/healt_bar.gd" id="1_onfsl"]
 [ext_resource type="Script" uid="uid://dwb8e77iug4qn" path="res://scripts/ui.gd" id="1_s2f8l"]
 
-[node name="UI" type="Control" unique_id=63290054 node_paths=PackedStringArray("mana_bar")]
+[node name="UI" type="Control" unique_id=63290054 node_paths=PackedStringArray("label", "mana_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2f8l")
+label = NodePath("BoxContainer/manaBar/Label")
 mana_bar = NodePath("BoxContainer/manaBar")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=2135773242]

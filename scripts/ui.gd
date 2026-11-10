@@ -1,5 +1,5 @@
 extends Control
-@onready var label: Label = $BoxContainer/manaBar/Label
+@export var label: Label
 @export var mana_bar: ProgressBar
 
 
