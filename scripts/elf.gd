@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+#exprots notiek pirmais ja to nomaina inspektorā + veikt set pārbaudi vai spelētājs ir ready
+
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @onready var layer = collision_layer
@@ -14,7 +16,10 @@ class_name Player
 #@export var maxMP: float = 80
 @onready var in_combat: bool = false
 @export var strenght: int = 2
-
+@export var stats: PlayerData:
+	set(value):
+		currentHP = value.maxHP
+		currentMP = value.maxMP
 
 signal mpchanged(new_value)
 @onready var currentMP:
@@ -33,7 +38,7 @@ signal mpchanged(new_value)
 		mana_bar = node
 
 signal healthChanged(new_value)
-@onready var currentHP: 
+@onready var currentHP: float:
 	set(value):
 		if value<currentHP:
 			in_combat_timer.start()
@@ -50,10 +55,7 @@ signal healthChanged(new_value)
 		healthChanged.connect(node.set_new_value)
 		node.set_status(stats.maxHP, currentHP)
 		healt_bar = node
-@export var stats: PlayerData:
-	set(value):
-		currentHP = value.maxHP
-		currentMP = value.maxMP
+
 func _ready() -> void:
 	if healt_bar:
 		healt_bar.set_status(stats.maxHP, currentHP)
