@@ -41,7 +41,7 @@ signal healthChanged(new_value)
 		if value >= stats.maxHP:
 			currentHP = stats.maxHP	
 			healthChanged.emit(stats.maxHP)
-		elif value < 0:
+		elif value <= 0:
 			currentHP = 0
 			healthChanged.emit(stats.naxHP)
 		else:
