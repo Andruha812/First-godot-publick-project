@@ -13,7 +13,7 @@ class_name Player
 #@export var maxHP: float = 100
 #@export var maxMP: float = 80
 @onready var in_combat: bool = false
-@export var strenght: int = 2
+@export var strength: int = 2
 @export var stats: PlayerData
 
 signal mpchanged(new_value)
@@ -38,12 +38,15 @@ signal healthChanged(new_value)
 		if value<currentHP:
 			in_combat_timer.start()
 			in_combat = true
-		if value >= stats.maxHP or value <= 0:
-			healthChanged.emit(stats.maxHP)
+		if value >= stats.maxHP:
 			currentHP = stats.maxHP	
+			healthChanged.emit(stats.maxHP)
+		elif value < 0:
+			currentHP = 0
+			healthChanged.emit(stats.naxHP)
 		else:
-			healthChanged.emit(value)
 			currentHP = value	
+			healthChanged.emit(value)
 
 @export var hp: ProgressBar:
 	set(node):
@@ -88,12 +91,19 @@ func _physics_process(delta: float) -> void:
 func _on_down_time_timeout() -> void:
 	collision_mask = mask
 	
-func passive_regenerate():
+func hp_regenerate():
 	if in_combat == false:
-		currentHP += 1
-		currentMP += 1
-		print("hp:", currentHP)
-
+		if currentHP < stats.maxHP:
+			currentHP += 1
+			#currentMP += 1
+			print("hp:", currentHP)
+			
+func mp_regenerate():
+	if in_combat == false:
+		if currentMP < stats.maxMP:
+			#currentHP += 1
+			currentMP += 1
+			print("mp:", currentMP)
 #func hurtByEnemy(area):
 	#healthChanged.emit()
 
@@ -104,7 +114,8 @@ func _on_in_combat_timer_timeout() -> void:
 
 
 func _on_regen_timer_timeout() -> void:
-	passive_regenerate()
+	hp_regenerate()
+	mp_regenerate()
 	
 func skill() -> void:
 	currentMP -= 15
