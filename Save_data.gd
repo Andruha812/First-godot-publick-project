@@ -8,5 +8,9 @@ func save_game() -> void:
 	if err!= OK:
 		printerr("Nesanaca saglabasana!!")
 
-var load_game:= load("user://elf.tres") as PlayerData
-print(load_game.hp)
+#var load_game:= load("user://elf.tres") as PlayerData
+func load_game() -> void:
+	if ResourceLoader.exists(save_path):
+		print("ieladeta spele un test text:", player_data.maxHP)
+	else:
+		print("saglabata faila nav!")
