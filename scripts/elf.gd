@@ -114,8 +114,9 @@ func _on_in_combat_timer_timeout() -> void:
 
 
 func _on_regen_timer_timeout() -> void:
-	hp_regenerate()
-	mp_regenerate()
+	pass
+	#sis ir komentets lai parbauditu resursus hp_regenerate()
+	# koments pec ta pasa principa kas augsa mp_regenerate()
 	
 func skill() -> void:
 	currentMP -= 15
