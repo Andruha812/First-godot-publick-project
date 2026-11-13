@@ -55,6 +55,8 @@ signal healthChanged(new_value)
 		healt_bar = node
 
 func _ready() -> void:
+	SaveData.load_game()
+	stats = SaveData.player_data
 	if healt_bar:
 		healt_bar.set_status(stats.maxHP, currentHP)
 	if stats: 
@@ -84,6 +86,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("skill_F"):
 		skill()
+		
+	if Input.is_action_just_pressed("savegame"):
+		stats.maxMP = 10
+		SaveData.save_game()
 
 	move_and_slide()
 	
